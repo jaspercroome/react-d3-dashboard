@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from 'd3-scale';
 
 type BarProps = {
-  data:number[],
+  data:{dt:Date,humidity:number}[],
   dimensions:{
     [key:string]:number
   }
@@ -11,19 +11,25 @@ type BarProps = {
 const Bars = (props:BarProps) => {
   const {data, dimensions} = props;
   const xScale = d3.scaleBand()
-    .domain(data.map((d,dNdx)=>dNdx))
+    .domain(data.map((d)=>d.dt.toString()))
     .range([0, dimensions.width])
   const yScale = d3.scaleLinear()
-    .domain([0,1])
+    .domain([0,100])
     .range([0,dimensions.height])
 
-  return (<svg overflow="visible">
+  return (<svg
+    x={dimensions.marginLeft}
+    y={dimensions.marginTop}
+    height={dimensions.height}
+    width={dimensions.width}
+    overflow="visible"
+    >
     {data.map((d,dNdx)=>(
       <rect 
-        height={yScale(d)}
+        height={yScale(d.humidity)}
         width={xScale.bandwidth()}
-        x={xScale(dNdx)}
-        y={dimensions.height - yScale(d)}
+        x={xScale(d.dt.toString())}
+        y={dimensions.height - yScale(d.humidity)}
         stroke="salmon"
         fill="darksalmon"
       />

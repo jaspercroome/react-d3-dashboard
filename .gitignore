@@ -1,3 +1,5 @@
 .snowpack
+.env
+src/utils/queries/keys.ts
 build
 node_modules

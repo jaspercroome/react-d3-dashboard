@@ -9,7 +9,8 @@
   "dependencies": {
     "d3-scale": "^4.0.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-query": "^3.34.16"
   },
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.1.0",
@@ -18,7 +19,9 @@
     "@snowpack/web-test-runner-plugin": "^0.2.2",
     "@testing-library/react": "^11.2.6",
     "@types/chai": "^4.2.17",
+    "@types/d3-scale": "^4.0.2",
     "@types/mocha": "^8.2.2",
+    "@types/node": "^17.0.21",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/snowpack-env": "^2.3.3",
